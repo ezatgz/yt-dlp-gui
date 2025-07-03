@@ -1,79 +1,43 @@
-# 工作流的名称
-name: Build and Release Executables
+name: Build Windows EXE and Release
 
-# 触发工作流的事件
 on:
-  # 当有代码推送到 main 分支时触发
   push:
-    branches:
-      - main
-  # 当有新的标签（如 v1.0, v2.0.1）被推送时触发
-  release:
-    types: [published]
+    tags:
+      - 'v*'  # 当你推送 v1.0.0 这类标签时自动触发构建和发布
 
-# 工作流包含的任务
 jobs:
-  # 第一个任务：构建应用
-  build:
-    # 任务名称
-    name: Build for Windows
-    # 指定运行环境
+  build-windows:
     runs-on: windows-latest
 
-    # 任务中的步骤
     steps:
-      # 步骤1: 检出（下载）你的仓库代码
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      # 步骤2: 设置 Python 环境
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11' # 可以指定你需要的 Python 版本
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
 
-      # 步骤3: 安装 Python 依赖库
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
 
-      # 步骤4: 使用 PyInstaller 打包
-      - name: Build with PyInstaller
-        run: pyinstaller --name "YT-DLP-Downloader" --onefile --windowed --add-data "icons;icons" --add-data "translations;translations" --icon="appicon.ico" main.py
-      
-      # 步骤5: 上传构建产物（可执行文件）
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-build
-          path: dist/
+    - name: Build EXE with PyInstaller
+      run: |
+        pyinstaller --name "YT-DLP Downloader" --onefile --windowed ^
+        --add-data "translations;translations" ^
+        --add-data "icons;icons" ^
+        --icon="appicon.ico" main.py
+      shell: cmd
 
-  # 第二个任务：创建 Release 并上传附件
-  release:
-    # 任务名称
-    name: Create GitHub Release
-    # 依赖于 build 任务，必须在 build 成功后才运行
-    needs: build
-    # 仅在创建了新的 release 时运行此任务
-    if: github.event_name == 'release'
-    # 运行环境
-    runs-on: ubuntu-latest
-    
-    # --- 已修复: 为此任务授予写入 Release 的权限 ---
-    permissions:
-      contents: write
+    - name: Rename EXE for Release
+      run: ren "dist\YT-DLP Downloader.exe" "yt-dlp-downloader-win.exe"
 
-    steps:
-      # 步骤1: 下载构建任务上传的产物
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: artifacts/
-
-      # 步骤2: 使用 softprops/action-gh-release 动作来创建 Release
-      - name: Create Release and Upload Assets
-        uses: softprops/action-gh-release@v2
-        with:
-          # 从下载的产物中查找文件并上传
-          files: artifacts/windows-build/*.exe
+    - name: Upload to GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: yt-dlp-downloader-win.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
