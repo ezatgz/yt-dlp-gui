@@ -4,10 +4,7 @@
 
 本应用为您提供了一个直观、易用的图形化界面，以调用强大的 [yt-dlp](https://github.com/yt-dlp/yt-dlp) 工具来下载网络视频、音频、封面及字幕，免去了记忆和输入复杂命令行的烦恼。
 
-![GitHub release](https://img.shields.io/github/v/release/ezatgz/yt-dlp-gui)
-![Platform](https://img.shields.io/badge/platform-windows%20%7C%20linux-lightgrey)
-![License](https://img.shields.io/github/license/ezatgz/yt-dlp-gui)
-![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+[![Latest Release](https://img.shields.io/github/v/release/ezatgz/yt-dlp-gui)](https://github.com/ezatgz/yt-dlp-gui/releases/latest)
 
 ![主界面](assets/screenshot1.png)
 ![主界面](assets/screenshot2.png)
