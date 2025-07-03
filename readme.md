@@ -2,12 +2,12 @@
 
 欢迎使用 YT-DLP 图形界面下载器！
 
-本应用为您提供了一个直观、易用的图形化界面，以调用强大的 `yt-dlp` 工具来下载网络视频、音频、封面及字幕，免去了记忆和输入复杂命令行的烦恼。
+本应用为您提供了一个直观、易用的图形化界面，以调用强大的 [yt-dlp](https://github.com/yt-dlp/yt-dlp) 工具来下载网络视频、音频、封面及字幕，免去了记忆和输入复杂命令行的烦恼。
 
-![主界面](assets/screenshot1.png)
-![主界面](assets/screenshot2.png)
-![主界面](assets/screenshot3.png)
-![主界面](assets/screenshot4.png)
+![GitHub release](https://img.shields.io/github/v/release/ezatgz/yt-dlp-gui)
+![Platform](https://img.shields.io/badge/platform-windows%20%7C%20linux-lightgrey)
+![License](https://img.shields.io/github/license/ezatgz/yt-dlp-gui)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 
 ## ✨ 主要功能
 
@@ -70,7 +70,7 @@
 
 1.  **运行程序**:
     ```bash
-    python main_gui.py
+    python main.py
     ```
 2.  **粘贴链接**: 将您想下载的视频 URL 粘贴到顶部的输入框中。
 
