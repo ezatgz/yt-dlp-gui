@@ -9,6 +9,9 @@
 ![License](https://img.shields.io/github/license/ezatgz/yt-dlp-gui)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 
+![界面1](assets/screenshot1.png) ![界面2](assets/screenshot2.png)![界面3](assets/screenshot3.png) ![界面4](assets/screenshot4.png)
+
+
 ## ✨ 主要功能
 
 * **全面的信息解析**: 粘贴视频链接后，可一键获取视频的详细信息。
