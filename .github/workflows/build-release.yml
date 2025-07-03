@@ -41,7 +41,7 @@ jobs:
       # 步骤4: 使用 PyInstaller 打包
       # --- 已修复: 将命令合并为单行以修复 PowerShell 解析错误 ---
       - name: Build with PyInstaller
-        run: pyinstaller --name "YT-DLP-Downloader" --onefile --windowed --add-data "icons;icons" --add-data "translations;translations" --icon="icons/icon.ico" main.py
+        run: pyinstaller --name "YT-DLP-Downloader" --onefile --windowed --add-data "icons;icons" --add-data "translations;translations" --icon="appicon.ico" main.py
       
       # 步骤5: 上传构建产物（可执行文件）
       - name: Upload Artifact
