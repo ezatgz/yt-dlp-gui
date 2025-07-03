@@ -4,7 +4,10 @@
 
 本应用为您提供了一个直观、易用的图形化界面，以调用强大的 `yt-dlp` 工具来下载网络视频、音频、封面及字幕，免去了记忆和输入复杂命令行的烦恼。
 
-
+![主界面](assets/screenshot1.png)
+![主界面](assets/screenshot2.png)
+![主界面](assets/screenshot3.png)
+![主界面](assets/screenshot4.png)
 
 ## ✨ 主要功能
 
