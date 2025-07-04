@@ -29,7 +29,7 @@
 
 ### 1. 环境准备
 
-注意：如果从 [Releases页面](https://github.com/ezatgz/yt-dlp-gui/releases) 下载 .exe 可执行版本运行程序，可忽略这一步。
+注意：如果从 [Releases页面](https://github.com/ezatgz/yt-dlp-gui/releases) 下载 .exe 可执行文件运行程序，可忽略这一步。
 
 在运行本应用前，请确保您的电脑已安装以下环境和库：
 
@@ -83,9 +83,9 @@
 
         python main.py
 
-    **方式二：从源码运行**
+    **方式二：从可执行文件运行**
 
-    可前往 [Releases页面](https://github.com/ezatgz/yt-dlp-gui/releases) 下载 .exe 可执行版本。
+    可前往 [Releases页面](https://github.com/ezatgz/yt-dlp-gui/releases) 下载 .exe 可执行文件。
     
 2.  **粘贴链接**: 将您想下载的视频 URL 粘贴到顶部的输入框中。
 
